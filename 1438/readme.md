@@ -1,3 +1,43 @@
+# A. [Specific Tastes of Andre](https://codeforces.com/contest/1438/problem/A)
+
+## 问题描述
+
+构造长度n的数组a，使得a的任意子串都满足：子串的和被子串的长度整除。
+
+## 问题思路
+
+没啥好说的，注意到a中每个元素可以相等，不妨让a由n个1构成，显然这是符合题意的。
+
+
+
+## 实现代码
+
+```c++
+#include<iostream>
+
+int t, n;
+
+int main() {
+	std::cin >> t;
+	while(t--) {
+		std::cin >> n;
+		for(int i = 1; i <= n; i++) {
+			std::cout << "1 ";
+		}
+		std::cout << "\n";
+	}
+	return 0;
+} 
+```
+
+
+
+## 要点
+
+贪心
+
+
+
 # B. [Valerii Against Everyone](https://codeforces.com/contest/1438/problem/B)
 
 ## 问题描述
