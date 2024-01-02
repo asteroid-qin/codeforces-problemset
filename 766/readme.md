@@ -1,3 +1,50 @@
+# A. [Mahmoud and a Triangle](https://codeforces.com/problemset/problem/766/B)
+
+## 问题描述
+
+给定长度n的字符串a和长度m的字符串b，求a与b最长非公共子序列的长度。
+
+
+
+## 问题思路
+
+显然，这个长度在[0, max(n ,m)]
+
+
+
+那么在什么情况下能取到max(n, m)呢？显然是选择a与b之间最长的那个，同时我们发现：如果a不等于b，那么总能取到max(n, m)。
+
+
+
+总结：
+
+a=b，输出-1，否则输出max(n, m)
+
+
+
+## 实现代码
+
+```c++
+#include<iostream>
+
+std::string a, b;
+int main() {
+	std::cin >> a >> b;
+	int n = a.size(), m = b.size();
+	if(a == b) std::cout << "-1\n";
+	else std::cout << std::max(n, m) << "\n";
+	return 0;
+} 
+```
+
+
+
+## 要点
+
+贪心
+
+
+
 # B. [Mahmoud and a Triangle](https://codeforces.com/problemset/problem/766/B)
 
 ## 问题描述
