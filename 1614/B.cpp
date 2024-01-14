@@ -1,23 +1,47 @@
 #include<iostream>
 #include<algorithm>
 
-int t, n, l, r, a[101], k;
+struct Node{
+	int id, val;
+	bool operator<(const Node& n) const {
+		if(val == n.val) return id < n.id;
+		return val > n.val;
+	} 
+} a[200001];
+int t, n, ans[200001];
+
+
 void slv() {
-	std::cin >> n >> l >> r >> k;
-	for(int i = 0; i < n; i++) {
-		std::cin >> a[i];
+	std::cin >> n;
+	for(int i = 1; i <= n; i++) {
+		std::cin >> a[i].val;
+		a[i].id = i;
+	}	
+	std::sort(a+1, a+1+n);
+	
+	ans[0] = 0;
+	
+	int m = n / 2;
+	long long sum = 0;
+	
+	for(int i = 1; i <= m; i++) {
+		ans[a[i*2-1].id] = i;
+		ans[a[i*2].id] = -i;
+		
+		sum += (long long) (a[i*2-1].val + a[i*2].val) * i;
 	}
 	
-	std::sort(a, a+n);
-
-	int cnt = 0;
-	for(int i = 0; i < n && a[i] <= k; i++) {
-		if(l <= a[i] && a[i] <= r) {
-			cnt++;
-			k -= a[i];
-		}
+	if(n&1) {
+		ans[a[n].id] = m + 1;
+		sum += (long long)a[n].val * (m + 1);
 	}
-	std::cout << cnt << "\n";
+	
+	std::cout << sum*2 << "\n";
+	for(int i = 0; i <= n; i++) {
+		std::cout << ans[i] << " ";
+	}
+	
+	std::cout << "\n";
 } 
 
 int main() {
