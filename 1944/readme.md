@@ -1,4 +1,4 @@
-# B. [Permutation Printing](https://codeforces.com/problemset/problem/1930/B)
+# B. [Equal XOR](https://codeforces.com/problemset/problem/1944/B)
 ## 问题描述
 给定长度2*n数组c，其中1到n恰好出现2次。给定整数k，要求构造数组l和r，满足：
 
